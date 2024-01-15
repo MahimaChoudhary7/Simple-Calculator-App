@@ -9,40 +9,41 @@ function App() {
   const resultRef = useRef(null); 
   const [result, setResult] = useState(0); 
  
-  const plus=(e)=> { 
-    e.preventDefault(); 
+   function plus(e) { 
+    e.preventDefault();
     setResult((result) => result + Number(inputRef.current.value)); 
-  }; 
+  } 
  
-  const minus=(e)=> {
-     e.preventDefault();
-    setResult((result) => result - Number(inputRef.current.value)); 
-  	// Add the code for the minus function 
-  };
- 
-  const times=(e)=> {
-     e.preventDefault(); 
-    setResult((result) => result * Number(inputRef.current.value)); 
-    // Add the code for the plus function 
-  }; 
- 
-  const divide=(e)=> {
-     e.preventDefault(); 
-    setResult((result) => result / Number(inputRef.current.value)); 
-    // Add the code for the divide function 
-  };
- 
-  const resetInput=(e)=> {
+  function minus(e) { 
     e.preventDefault(); 
-    inputRef.current.value=0; 
-    // Add the code for the resetInput function 
-  }; 
+    const inputVal = inputRef.current.value; 
+    const newResult = result - Number(inputVal); 
+    setResult(newResult); 
+  } 
  
-  const resetResult=(e)=> {
+  function times(e) { 
     e.preventDefault(); 
-    setResult((prevVal)=> prevVal*0);
-  	// Add the code for the resetResult function 
-  }; 
+    const inputVal = inputRef.current.value; 
+    const newResult = result * Number(inputVal); 
+    setResult(newResult); 
+  } 
+ 
+  function divide(e) { 
+    e.preventDefault(); 
+    const inputVal = inputRef.current.value; 
+    const newResult = result / Number(inputVal); 
+    setResult(newResult); 
+  } 
+ 
+  function resetInput(e) { 
+    e.preventDefault(); 
+    inputRef.current.value = 0; 
+  } 
+ 
+  function resetResult(e) { 
+    e.preventDefault(); 
+    setResult(0); 
+  } 
  
   return ( 
     <div className="App"> 
